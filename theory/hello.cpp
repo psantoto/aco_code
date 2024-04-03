@@ -2,7 +2,7 @@
 #include <iostream> 
 using namespace std;
 
-void main(){
+int main(){
   cout << "Hellow world!" << endl;
   
   return 0; 

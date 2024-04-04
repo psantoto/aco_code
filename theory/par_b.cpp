@@ -16,7 +16,8 @@ int main(){
   double walltime=0.;
   high_resolution_clock::time_point begin, end;
   begin = high_resolution_clock::now(); // Start the timer
-
+  double start_omp = omp_get_wtime();
+  
   // Populate the vector a
   a[0] = STARTVALUE;
   // #pragma omp parallel 
@@ -36,6 +37,9 @@ int main(){
   } // end of parallel section
 
   // Measure the wall time
+    double end_omp = omp_get_wtime();
+    double timeomp = end_omp - start_omp; //seconds
+    cout << endl << timeomp << "s running the code (omp)" << endl;
   end = high_resolution_clock::now();   // End the timer
   walltime = duration_cast<nanoseconds>(end - begin).count();
   cout << scientific << setprecision(2);

@@ -19,8 +19,8 @@ int main(){
 
   // Populate the vector a
   a[0] = STARTVALUE;
-  #pragma omp parallel 
-  {
+  // #pragma omp parallel 
+  // {
     int ID = omp_get_thread_num();
     # pragma omp for
     for(int i=1; i<N; i++){
@@ -32,7 +32,7 @@ int main(){
       string outm = "Thread " + to_string(ID) + ": a[" + to_string(i) +
 	"] = " + to_string(a[i]);
       cout << outm << endl; 
-    }
+      // }
   } // end of parallel section
 
   // Measure the wall time
